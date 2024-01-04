@@ -4,7 +4,7 @@
 require '../vendor/autoload.php';
 
 //* Archivos encargados de generar la conexion con la bd via eloquent
-use illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 //* Se crea una variable donde se almacenan los datos retornados
 $config=require 'config.php';

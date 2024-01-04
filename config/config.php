@@ -7,7 +7,7 @@ return[
     'database' => [
         
         'driver' => 'mysql',
-        'host' => 'localhost',
+        'host' => 'localhost:3307',
         'database' => 'cineplex',
         'username' => 'root',
         'password' => '12345678',
