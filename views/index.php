@@ -1,16 +1,12 @@
 <?php
 
-require '../config/conection.php';
+require '../controllers/usuarios_controller.php';
 
-use Illuminate\Database\Eloquent\Model;
+$prueba=new user_controller();
 
-class usuarios extends Model{
-    protected $table = 'usuarios';
-}
+$prueba2= $prueba->show();
 
-$prueba= usuarios::all();
-
-foreach ($prueba as $value) {
+foreach ($prueba2 as $value) {
     echo $value['id'];
     echo $value['correo'];
 }
