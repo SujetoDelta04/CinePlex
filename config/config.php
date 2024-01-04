@@ -1,5 +1,7 @@
 <?php
 
+//* Datos de conexion a la base de datos
+
 return[
   
     'database' => [
