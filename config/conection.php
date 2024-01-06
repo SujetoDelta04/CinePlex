@@ -1,7 +1,7 @@
 <?php
 
 //* Se llama al archivo con los datos
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 //* Archivos encargados de generar la conexion con la bd via eloquent
 use Illuminate\Database\Capsule\Manager as Capsule;
