@@ -6,12 +6,12 @@
     <title>Admin Login</title>
 </head>
 <body>
-    <form action="../../controllers/admin_controller.php?f=login" method="POST">
+    <form action="../../functions/admin_functions/admin.php" method="POST">
         <label for="">Correo</label>
         <input type="email" name="admin_email" id="">
         <label for="">Contraseña</label>
         <input type="password" name="admin_password" id="">
-        <input type="submit" value="Ingresar">
+        <input type="submit" name="sub_execute" value="Ingresar">
     </form>
 </body>
 </html>
