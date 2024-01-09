@@ -20,8 +20,10 @@ class admin_func
                 $password=$fila["contraseña"];
                 $username=$fila["username"];
             }
+            echo $correo . "<br>";
+            echo $email;
             
-            if($email == $correo && password_verify('AdamBlast', $password))
+            if(password_verify($pass, $password) && $correo == $email)
             {
                 session_start();
                 $_SESSION['active']=$username;
@@ -40,18 +42,19 @@ $functions=new admin_func();
 
 if(isset($_POST['sub_execute']))
 {
-    echo $email=$_POST['admin_email'] . "\n";
+    echo $email=$_POST['admin_email'];
     echo $password_f=$_POST['admin_password'];
 
     $action=$functions->log($password_f, $email);
 
     if($action != false)
     {
-        //header('location: ../../public/views_admin/index.php');
+        header('location: ../../public/views_admin/index.php');
     }
     else
     {
-        echo "Error";
+        echo "<script> alert('Credenciales incorrectas'); </script>";
+        echo "<script> window.location='../../public/views_admin/login.php'; </script>";
     }
 }
 
