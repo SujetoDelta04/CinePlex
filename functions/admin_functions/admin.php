@@ -20,10 +20,11 @@ class admin_func
                 $password=$fila["contraseña"];
                 $username=$fila["username"];
             }
-            echo $correo . "<br>";
-            echo $email;
+            //* Funcion trim sirve para eliminar espacios
+            $t_pass=trim($pass);
+            $t_email=trim($email);
             
-            if(password_verify($pass, $password) && $correo == $email)
+            if(password_verify($t_pass, $password) && $correo == $t_email)
             {
                 session_start();
                 $_SESSION['active']=$username;
