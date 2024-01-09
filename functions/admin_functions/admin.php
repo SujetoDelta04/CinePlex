@@ -3,19 +3,31 @@
 require_once '../../config/conection.php';
 class admin_func
 {
-    public function show()
+    public function log($pass, $email)
     {
         try
         {
-            $sql="SELECT * FROM administradores";
-            $connection=new connection();
-            $pdo=$connection->start_connection();
+            $sql_d="SELECT * FROM administradores";
+            $start=new connection();
+            $pdo=$start->start_connection();
 
-            $show=$pdo->prepare($sql);
-            $show->execute();
-            $result= $show->fetchAll(PDO::FETCH_ASSOC);
+            $data=$pdo->prepare($sql_d);
+            $data->execute();
+            $d=$data->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
+            foreach ($d as $fila) {
+                $correo=$fila["correo"];
+                $password=$fila["contraseña"];
+                $username=$fila["username"];
+            }
+            
+            if($email == $correo && password_verify('AdamBlast', $password))
+            {
+                session_start();
+                $_SESSION['active']=$username;
+                return true;
+            }
+            return false;
         }
         catch(PDOException $e)
         {
@@ -28,11 +40,19 @@ $functions=new admin_func();
 
 if(isset($_POST['sub_execute']))
 {
-    $array= $functions->show();
+    echo $email=$_POST['admin_email'] . "\n";
+    echo $password_f=$_POST['admin_password'];
 
-    var_dump($array);
+    $action=$functions->log($password_f, $email);
 
-    echo "funciono";
+    if($action != false)
+    {
+        //header('location: ../../public/views_admin/index.php');
+    }
+    else
+    {
+        echo "Error";
+    }
 }
 
 ?>
