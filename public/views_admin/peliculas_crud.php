@@ -98,12 +98,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <p>Registrar</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Actualizar</p>
-                  </a>
-                </li>
               </ul>
             </li>
             <li class="nav-item menu-open">
@@ -294,6 +288,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><img src="../../multi/pelicullas_portadas/<?php echo $fila['portada']; ?>" width="25%" height="25%" alt=""></td>
                         <td><?php echo $fila['nombre']; ?></td>
                         <td><a href="../../functions/admin_functions/admin.php?delete=<?php echo $fila['id']; ?>">Eliminar</a></td>
+                        <td><a href="peliculas_update.php?id=<?php echo $fila['id']; ?>">Actualizar</a></td>
                       </tr>
                       <?php } ?>
                   </tbody>

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../functions/admin_functions/admin.php';
+
 session_start();
 
 if (!isset($_SESSION['active'])) {
@@ -246,49 +248,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Registro de peliculas</h3>
+                            <h3 class="card-title">Actualizacion de registros</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="../../functions/admin_functions/admin.php" method="POST" enctype="multipart/form-data">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Titulo</label>
-                                    <input type="text" name="p_tittle" class="form-control" id="exampleInputEmail1" placeholder="Titulo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Descripcion</label>
-                                    <input type="text" name="p_description" class="form-control" id="exampleInputPassword1" placeholder="Descripcion">
-                                </div>
-                                <div class="form-group">
-                                    <select name="p_category" class="form-select" id="">
-                                        <option value="1">Accion</option>
-                                        <option value="2">Terror</option>
-                                        <option value="3">Aventura</option>
-                                        <option value="4">Comedia</option>
-                                        <option value="5">Drama</option>
-                                        <option value="6">Romance</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Portada</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="p_img" class="custom-file-input" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
+                        <?php
+
+                        $id = $_GET['id'];
+                        $search = new admin_func();
+                        $result = $search->search_up($id);
+
+                        foreach ($result as $fila) {
+                        ?>
+                            <form action="../../functions/admin_functions/admin.php" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Id</label>
+                                        <input type="text" name="p_id" class="form-control" id="exampleInputEmail1" placeholder="Id" value="<?php echo $fila['id'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Titulo</label>
+                                        <input type="text" name="p_tittle" class="form-control" id="exampleInputEmail1" placeholder="Titulo" value="<?php echo $fila['titulo'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Descripcion</label>
+                                        <input type="text" name="p_description" class="form-control" id="exampleInputPassword1" placeholder="Descripcion" value="<?php echo $fila['descripcion'] ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="p_category" class="form-select" id="">
+                                            <option value="<?php echo $fila['categorias_id'] ?>"><?php echo $fila['categorias_id'] ?></option>
+                                            <option value="1">Accion</option>
+                                            <option value="2">Terror</option>
+                                            <option value="3">Aventura</option>
+                                            <option value="4">Comedia</option>
+                                            <option value="5">Drama</option>
+                                            <option value="6">Romance</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Portada</label>
+                                        <img src="../../multi/pelicullas_portadas/<?php echo $fila['portada'] ?>" width="30%" height="30%" alt="">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="p_img" class="custom-file-input" id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- /.card-body -->
+                                <!-- /.card-body -->
 
-                            <div class="card-footer">
-                                <button type="submit" name="sub_p_execute" class="btn btn-primary">Registrar</button>
-                            </div>
-                        </form>
+                                <div class="card-footer">
+                                    <button type="submit" name="sub_up_execute" class="btn btn-primary">Actualizar</button>
+                                </div>
+                            </form>
+                        <?php } ?>
                     </div>
                 </div><!-- /.container-fluid -->
             </div>
