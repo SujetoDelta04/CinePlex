@@ -252,7 +252,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Quick Example</h3>
+                            <h3 class="card-title">Registro de peliculas</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -267,8 +267,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <input type="text" name="p_description" class="form-control" id="exampleInputPassword1" placeholder="Descripcion">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Categoria</label>
-                                    <input type="number" name="p_category" class="form-control" id="exampleInputPassword1" placeholder="Categoria">
+                                    <select name="p_category" class="form-select" id="">
+                                        <option value="1">Accion</option>
+                                        <option value="2">Terror</option>
+                                        <option value="3">Aventura</option>
+                                        <option value="4">Comedia</option>
+                                        <option value="5">Drama</option>
+                                        <option value="6">Romance</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Portada</label>

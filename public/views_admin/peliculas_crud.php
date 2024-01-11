@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../functions/admin_functions/admin.php';
+
 session_start();
 
 if (!isset($_SESSION['active'])) {
@@ -280,7 +282,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                   </thead>
                   <tbody>
+                    <?php 
 
+                      $movies=new admin_func();
+                      $data=$movies->show();
+                      foreach ($data as $fila) {
+                    ?>
+                      <tr>
+                        <td><?php echo $fila['id']; ?></td>
+                        <td><?php echo $fila['titulo']; ?></td>
+                        <td><img src="../../multi/pelicullas_portadas/<?php echo $fila['portada']; ?>" width="25%" height="25%" alt=""></td>
+                        <td><?php echo $fila['nombre']; ?></td>
+                        <td><a href="../../functions/admin_functions/admin.php?delete=<?php echo $fila['id']; ?>">Eliminar</a></td>
+                      </tr>
+                      <?php } ?>
                   </tbody>
                 </table>
               </div>
