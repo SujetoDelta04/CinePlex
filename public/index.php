@@ -1,3 +1,4 @@
+<?php require_once '../functions/peliculas.php'; ?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -52,16 +53,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <?php
+
+                        $show_all = new peliculas_func();
+                        $result = $show_all->show();
+
+                        foreach ($result as $filas) {
+                        ?>
+                            <div class="col-md-4">
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="../multi/pelicullas_portadas/<?php echo $filas['portada']; ?>" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo $filas['titulo']; ?></h5><br>
+                                                <h5 class="card-title">Categoria: <?php echo $filas['nombre']; ?></h5><br>
+                                                <a href="../functions/peliculas.php?id=<?php echo $filas['id']; ?>" class="btn btn-success">Detalles</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -73,8 +88,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
             <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
+                <h5>Inicio de sesion</h5>
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Ingresa tu Email</label>
+                        <input type="email" placeholder="Correo electronico" name="pl_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Ingresa tu contraseña</label>
+                        <input type="password" placeholder="Contraseña" name="pl_password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="sub_pl_execute">Iniciar Sesion</button>
+                </form><br>
+                <a href="">¿Olvidaste tu contraseña? Da click aqui</a>
             </div>
         </aside>
         <!-- /.control-sidebar -->
