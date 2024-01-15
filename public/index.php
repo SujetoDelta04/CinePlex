@@ -89,18 +89,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Control sidebar content goes here -->
             <div class="p-3">
                 <h5>Inicio de sesion</h5>
-                <form action="" method="POST">
+                <form action="../functions/usuarios.php" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Ingresa tu Email</label>
-                        <input type="email" placeholder="Correo electronico" name="pl_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" placeholder="Correo electronico" name="user_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Ingresa tu contraseña</label>
-                        <input type="password" placeholder="Contraseña" name="pl_password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" placeholder="Contraseña" name="user_password" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="sub_pl_execute">Iniciar Sesion</button>
+                    <button type="submit" class="btn btn-primary" name="sub_execute_login_users">Iniciar Sesion</button>
                 </form><br>
                 <a href="">¿Olvidaste tu contraseña? Da click aqui</a>
+                <a href="../functions/usuarios.php?session_out=true">Cerrar sesion</a>
             </div>
         </aside>
         <!-- /.control-sidebar -->

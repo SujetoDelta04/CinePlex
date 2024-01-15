@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,16 @@
                     <img src="" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block"></a>
+                    <?php
+                    if($_SESSION['username'] == null)
+                    {
+                        echo "<p> Sesion inactiva </p>";
+                    }
+                    else
+                    {
+                        echo $_SESSION['username'];
+                    }
+                    ?>
                 </div>
             </div>
 

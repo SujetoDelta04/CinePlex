@@ -65,8 +65,9 @@
                                     <h3 class="my-3"><?php echo $filas['titulo']; ?></h3>
 
                                     <hr>
-
+                                    <h4 class="mt-3">Categoria: <?php echo $filas['nombre']; ?></h4>
                                     <h4 class="mt-3">Puntuacion</h4>
+                                    <input type="range" name="" value="5" id="">
 
                                     <div class="mt-4">
                                         <div class="btn btn-primary btn-lg btn-flat">
