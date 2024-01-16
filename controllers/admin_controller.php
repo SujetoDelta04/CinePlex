@@ -60,7 +60,7 @@ if (isset($_POST['sub_execute'])) {
 } else if (isset($_GET['out']) == true) {
     session_start();
     session_destroy();
-    header('location: ../../public/views_admin/index.php');
+    header('location: ../public/views_admin/index.php');
 } else if (isset($_GET['delete'])) {
     $del = $_GET['delete'];
 
