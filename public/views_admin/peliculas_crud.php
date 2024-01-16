@@ -104,8 +104,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                     <?php 
 
-                      $movies=new admin_func();
-                      $data=$movies->show();
+                      $movies=new admin_controller();
+                      $data=$movies->show_controller();
                       foreach ($data as $fila) {
                     ?>
                       <tr>

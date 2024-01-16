@@ -1,6 +1,6 @@
 <?php
 
-require_once '../models/admin.php';
+require_once (__DIR__ . '/../models/admin.php');
 
 class admin_controller
 {
@@ -16,6 +16,13 @@ class admin_controller
     {
         $call=$this->admin_model();
         $result=$call->log($password_f, $email);
+
+        return $result;
+    }
+    public function show_controller()
+    {
+        $call=$this->admin_model();
+        $result=$call->show();
 
         return $result;
     }
@@ -35,17 +42,17 @@ if (isset($_POST['sub_execute'])) {
         echo "<script> alert('Credenciales incorrectas'); </script>";
         echo "<script> window.location='../public/views_admin/index.php'; </script>";
     }
-} /*else if (isset($_POST['sub_p_execute'])) {
+} else if (isset($_POST['sub_p_execute'])) {
     $tittle = $_POST['p_tittle'];
     $description = $_POST['p_description'];
     $category = $_POST['p_category'];
     $port = $_FILES['p_img']['name'];
 
-    $p_action = $functions->movie($tittle, $description, $category, $port);
+    $p_action = $functions->movie_controller($tittle, $description, $category, $port);
 
     if ($p_action != false) {
         echo "<script> alert('Registro guardado'); </script>";
-        echo "<script> window.location='../../public/views_admin/peliculas_register.php'; </script>";
+        echo "<script> window.location='../public/views_admin/peliculas_register.php'; </script>";
     } else {
         echo "<script> alert('Error al registrar " . $p_action . "'); </script>";
         //echo "<script> window.location='../../public/views_admin/peliculas_register.php'; </script>";
@@ -57,14 +64,14 @@ if (isset($_POST['sub_execute'])) {
 } else if (isset($_GET['delete'])) {
     $del = $_GET['delete'];
 
-    $action_d = $functions->delete($del);
+    $action_d = $functions->delete_controller($del);
 
     if ($action_d != false) {
         echo "<script> alert('Registro Eliminado'); </script>";
         echo "<script> window.location='../../public/views_admin/peliculas_crud.php'; </script>";
     } else {
         echo "<script> alert('Error al eliminar " . $p_action . "'); </script>";
-        echo "<script> window.location='../../public/views_admin/peliculas_crud.php'; </script>";
+        echo "<script> window.location='../public/views_admin/peliculas_crud.php'; </script>";
     }
 } else if (isset($_POST['sub_up_execute'])) {
     $id = $_POST['p_id'];
@@ -75,18 +82,18 @@ if (isset($_POST['sub_execute'])) {
 
     if ($id == null) {
         echo "<script> alert('Adstente de modificar el id'); </script>";
-        echo "<script> window.location='../../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
+        echo "<script> window.location='../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
     } else {
-        $update = $functions->update($id, $tittle, $description, $port, $category);
+        $update = $functions->update_controller($id, $tittle, $description, $port, $category);
 
         if ($update == true) {
             echo "<script> alert('Registro actualizado'); </script>";
-            echo "<script> window.location='../../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
+            echo "<script> window.location='../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
         } else {
             echo "<script> alert('Error de actualizacion'); </script>";
-            echo "<script> window.location='../../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
+            echo "<script> window.location='../public/views_admin/peliculas_update.php?id=" . $id . "'; </script>";
         }
     }
-}*/
+}
 
 ?>

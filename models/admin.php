@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/conection.php';
+require_once (__DIR__ . '/../config/conection.php');
 class admin_func
 {
     public function log($pass, $email)
@@ -32,11 +32,6 @@ class admin_func
         } catch (PDOException $e) {
             echo "Error " . $e->getMessage();
         }
-    }
-    public function session_output()
-    {
-
-        return true;
     }
     public function movie($t, $d, $c, $p)
     {
