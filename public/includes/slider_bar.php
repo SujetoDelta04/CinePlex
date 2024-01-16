@@ -34,9 +34,9 @@
                 <div class="image">
                     <img src="" class="img-circle elevation-2" alt="User Image">
                 </div>
-                <div class="info">
+                <div class="info text-light">
                     <?php
-                    if($_SESSION['username'] == null)
+                    if(isset($_SESSION['username']) == null)
                     {
                         echo "<p> Sesion inactiva </p>";
                     }

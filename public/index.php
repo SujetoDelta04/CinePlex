@@ -1,4 +1,4 @@
-<?php require_once '../functions/peliculas.php'; ?>
+<?php require_once '../controllers/peliculas_controller.php'; ?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -55,8 +55,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                         <?php
 
-                        $show_all = new peliculas_func();
-                        $result = $show_all->show();
+                        $show_movies=new peliculas_controller();
+                        $result=$show_movies->index();
 
                         foreach ($result as $filas) {
                         ?>
@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <div class="card-body">
                                                 <h5 class="card-title"><?php echo $filas['titulo']; ?></h5><br>
                                                 <h5 class="card-title">Categoria: <?php echo $filas['nombre']; ?></h5><br>
-                                                <a href="../functions/peliculas.php?id=<?php echo $filas['id']; ?>" class="btn btn-success">Detalles</a>
+                                                <a href="../controllers/peliculas_controller.php?id=<?php echo $filas['id']; ?>" class="btn btn-success">Detalles</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Control sidebar content goes here -->
             <div class="p-3">
                 <h5>Inicio de sesion</h5>
-                <form action="../functions/usuarios.php" method="POST">
+                <form action="../controllers/usuarios_controller.php" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Ingresa tu Email</label>
                         <input type="email" placeholder="Correo electronico" name="user_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -100,8 +100,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <button type="submit" class="btn btn-primary" name="sub_execute_login_users">Iniciar Sesion</button>
                 </form><br>
-                <a href="">¿Olvidaste tu contraseña? Da click aqui</a>
-                <a href="../functions/usuarios.php?session_out=true">Cerrar sesion</a>
+                <a href="">¿Olvidaste tu contraseña? Da click aqui</a><br>
+                <a href="../controllers/usuarios_controller.php?session_out">Cerrar sesion</a>
             </div>
         </aside>
         <!-- /.control-sidebar -->

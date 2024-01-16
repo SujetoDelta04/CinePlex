@@ -38,21 +38,4 @@ class usuarios_func
     }
 }
 
-$functions = new usuarios_func();
-
-if (isset($_POST['sub_execute_login_users'])) {
-    $email = $_POST['user_email'];
-    $password = $_POST['user_password'];
-
-    $result = $functions->login($email, $password);
-
-    if ($result != false) {
-        echo "<script> alert('Inicio de sesion exitoso'); </script>";
-        echo "<script> window.location='../public/index.php'; </script>";
-    }
-    else
-    {
-        echo "<script> alert('Fallo de inicio de sesion, credenciales no encontradas'); </script>";
-        echo "<script> window.location='../public/index.php'; </script>";
-    }
-}
+?>

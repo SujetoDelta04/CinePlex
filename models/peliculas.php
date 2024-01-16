@@ -38,14 +38,4 @@ class peliculas_func
     }
 }
 
-$functions=new peliculas_func();
-
-if(isset($_GET['id']))
-{
-    $id=$_GET['id'];
-    $details_call=$functions->show_details($id);
-    $details_call_json=json_encode($details_call);
-    header('location: ../public/details.php?packet=' . $details_call_json);
-}
-
 ?>

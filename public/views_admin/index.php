@@ -6,7 +6,7 @@
     <title>Admin Login</title>
 </head>
 <body>
-    <form action="../../functions/admin_functions/admin.php" method="POST">
+    <form action="../../controllers/admin_controller.php" method="POST">
         <label for="">Correo</label>
         <input type="email" name="admin_email" id="">
         <label for="">Contraseña</label>
