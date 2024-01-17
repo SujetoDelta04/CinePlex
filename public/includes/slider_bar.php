@@ -32,7 +32,12 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="" class="img-circle elevation-2" alt="User Image">
+                    <?php
+                        if(isset($_SESSION['username']) == null)
+                        {
+                            echo "<img src='../multi/user_port/usuario.png' class='img-circle elevation-2' alt='User Image'>";
+                        }
+                    ?>
                 </div>
                 <div class="info text-light">
                     <?php
@@ -109,7 +114,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="combos.php" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Confiteria

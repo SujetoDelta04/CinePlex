@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Categorias</h1>
+                            <h1 class="m-0">Combos disponibles</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -52,28 +52,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <?php
-                        $result = $_GET['packet'];
-                        $result_decode = json_decode($result, true);
-                        foreach ($result_decode as $filas) {
-                        ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3" style="max-width: 540px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="../multi/pelicullas_portadas/<?php echo $filas['portada']; ?>" class="img-fluid rounded-start" alt="...">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $filas['titulo']; ?></h5><br>
-                                                <h5 class="card-title">Categoria: <?php echo $filas['nombre']; ?></h5><br>
-                                                <a href="../controllers/peliculas_controller.php?id=<?php echo $filas['id']; ?>" class="btn btn-success">Detalles</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5>Combo individual</h5>
+                                    <h5 class="card-title">Contenido: </h5><br>
+                                    <li>Palomitas medianas</li>
+                                    <li>Gaseosa mediana</li><br>
+                                    <h5>Valor: $15.000</h5>
                                 </div>
                             </div>
-                        <?php } ?>
+                        </div>
                     </div>
                 </div><!-- /.container-fluid -->
             </div>
