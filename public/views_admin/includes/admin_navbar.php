@@ -16,7 +16,7 @@
                     <a href="peliculas_crud.php" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../functions/admin_functions/admin.php?out=true" class="nav-link">Cerrar Sesion</a>
+                    <a href="../../controllers/admin_controller.php?out=true" class="nav-link">Cerrar Sesion</a>
                 </li>
             </ul>
         </nav>

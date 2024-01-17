@@ -1,6 +1,6 @@
 <?php
 
-require_once (__DIR__ . '/../models/admin.php');
+require_once(__DIR__ . '/../models/admin.php');
 
 class admin_controller
 {
@@ -8,49 +8,49 @@ class admin_controller
 
     public function admin_model()
     {
-        $this->model=new admin_func();
+        $this->model = new admin_func();
 
         return $this->model;
     }
     public function log_controller($password_f, $email)
     {
-        $call=$this->admin_model();
-        $result=$call->log($password_f, $email);
+        $call = $this->admin_model();
+        $result = $call->log($password_f, $email);
 
         return $result;
     }
     public function show_controller()
     {
-        $call=$this->admin_model();
-        $result=$call->show();
+        $call = $this->admin_model();
+        $result = $call->show();
 
         return $result;
     }
     public function movie_controller($tittle, $description, $category, $port)
     {
-        $call=$this->admin_model();
-        $result=$call->movie($tittle, $description, $category, $port);
+        $call = $this->admin_model();
+        $result = $call->movie($tittle, $description, $category, $port);
 
         return $result;
     }
     public function delete_controller($id)
     {
-        $call=$this->admin_model();
-        $result=$call->delete($id);
+        $call = $this->admin_model();
+        $result = $call->delete($id);
 
         return $result;
     }
     public function update_controller($id, $tittle, $description, $port, $category)
     {
-        $call=$this->admin_model();
-        $result=$call->update($id, $tittle, $description, $port, $category);
+        $call = $this->admin_model();
+        $result = $call->update($id, $tittle, $description, $port, $category);
 
         return $result;
     }
     public function search_controller($id)
     {
-        $call=$this->admin_model();
-        $result=$call->search_up($id);
+        $call = $this->admin_model();
+        $result = $call->search_up($id);
 
         return $result;
     }
@@ -123,5 +123,3 @@ if (isset($_POST['sub_execute'])) {
         }
     }
 }
-
-?>

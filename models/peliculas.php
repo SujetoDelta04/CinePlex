@@ -36,6 +36,17 @@ class peliculas_func
 
         return $show_details;
     }
+    public function category($cat)
+    {
+        $pdo=$this->conection();
+        $sql_show_movie_category="SELECT * FROM peliculas JOIN categorias ON peliculas.categorias_id=categorias.id WHERE nombre=?";
+
+        $search=$pdo->prepare($sql_show_movie_category);
+        $search->execute(array($cat));
+        $movie_category=$search->fetchAll(PDO::FETCH_ASSOC);
+
+        return $movie_category;
+    }
 }
 
 ?>

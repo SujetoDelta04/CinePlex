@@ -63,37 +63,37 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
+                                <a href="../controllers/peliculas_controller.php?category=Accion" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Accion</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="../controllers/peliculas_controller.php?category=Terror" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Terror</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="../controllers/peliculas_controller.php?category=Aventura" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Aventura</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="../controllers/peliculas_controller.php?category=Comedia" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Comedia</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="../controllers/peliculas_controller.php?category=Drama" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Drama</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="../controllers/peliculas_controller.php?category=Romance" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Romance</p>
                                 </a>
