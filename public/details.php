@@ -18,7 +18,11 @@
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        <?php require_once 'includes/navbar.php'; ?>
+        <?php
+
+use LDAP\Result;
+
+ require_once 'includes/navbar.php'; ?>
         <!-- /.navbar -->
 
         <!-- Slide bar -->
@@ -48,8 +52,9 @@
                 <!-- Default box -->
                 <?php
                 //* Es necesario usar true para que json_decode devuelva un array asociativo
-                $details_show_decode = json_decode($_GET['packet'], true);
-
+                $result=$_GET['packet'];
+                $details_show_decode = json_decode($result, true);
+                
                 foreach ($details_show_decode as $filas) {
                 ?>
                     <div class="card card-solid">

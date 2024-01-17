@@ -28,7 +28,7 @@ class peliculas_func
     public function show_details($id)
     {
         $pdo=$this->conection();
-        $sql_show_details="SELECT * FROM peliculas JOIN categorias ON peliculas.categorias_id=categorias.id WHERE peliculas.id=?";
+        $sql_show_details="SELECT peliculas.id, peliculas.titulo, peliculas.portada, peliculas.descripcion, categorias.nombre FROM peliculas JOIN categorias ON peliculas.categorias_id=categorias.id WHERE peliculas.id=?";
 
         $details=$pdo->prepare($sql_show_details);
         $details->execute(array($id));
@@ -39,7 +39,7 @@ class peliculas_func
     public function category($cat)
     {
         $pdo=$this->conection();
-        $sql_show_movie_category="SELECT * FROM peliculas JOIN categorias ON peliculas.categorias_id=categorias.id WHERE nombre=?";
+        $sql_show_movie_category="SELECT peliculas.id, peliculas.titulo, peliculas.portada, peliculas.descripcion, categorias.nombre FROM peliculas JOIN categorias ON peliculas.categorias_id=categorias.id WHERE nombre=?";
 
         $search=$pdo->prepare($sql_show_movie_category);
         $search->execute(array($cat));
