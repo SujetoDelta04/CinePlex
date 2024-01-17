@@ -26,6 +26,34 @@ class admin_controller
 
         return $result;
     }
+    public function movie_controller($tittle, $description, $category, $port)
+    {
+        $call=$this->admin_model();
+        $result=$call->movie($tittle, $description, $category, $port);
+
+        return $result;
+    }
+    public function delete_controller($id)
+    {
+        $call=$this->admin_model();
+        $result=$call->delete($id);
+
+        return $result;
+    }
+    public function update_controller($id, $tittle, $description, $port, $category)
+    {
+        $call=$this->admin_model();
+        $result=$call->update($id, $tittle, $description, $port, $category);
+
+        return $result;
+    }
+    public function search_controller($id)
+    {
+        $call=$this->admin_model();
+        $result=$call->search_up($id);
+
+        return $result;
+    }
 }
 
 $functions = new admin_controller();
@@ -68,7 +96,7 @@ if (isset($_POST['sub_execute'])) {
 
     if ($action_d != false) {
         echo "<script> alert('Registro Eliminado'); </script>";
-        echo "<script> window.location='../../public/views_admin/peliculas_crud.php'; </script>";
+        echo "<script> window.location='../public/views_admin/peliculas_crud.php'; </script>";
     } else {
         echo "<script> alert('Error al eliminar " . $p_action . "'); </script>";
         echo "<script> window.location='../public/views_admin/peliculas_crud.php'; </script>";

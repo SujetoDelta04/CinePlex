@@ -33,21 +33,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="peliculas_crud.php" class="nav-link">Inicio</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="../../controllers/admin_controller.php?out=true" class="nav-link">Cerrar Sesion</a>
-        </li>
-      </ul>
-    </nav>
+    <?php require_once 'includes/admin_navbar.php'; ?>
     <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
     <?php require_once 'includes/aside.php'; ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -102,21 +91,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
+                    <?php
 
-                      $movies=new admin_controller();
-                      $data=$movies->show_controller();
-                      foreach ($data as $fila) {
+                    $movies = new admin_controller();
+                    $data = $movies->show_controller();
+                    foreach ($data as $fila) {
                     ?>
                       <tr>
                         <td><?php echo $fila['id']; ?></td>
                         <td><?php echo $fila['titulo']; ?></td>
                         <td><img src="../../multi/pelicullas_portadas/<?php echo $fila['portada']; ?>" width="25%" height="25%" alt=""></td>
                         <td><?php echo $fila['nombre']; ?></td>
-                        <td><a href="../../functions/admin_functions/admin.php?delete=<?php echo $fila['id']; ?>">Eliminar</a></td>
+                        <td><a href="../../controllers/admin_controller.php?delete=<?php echo $fila['id']; ?>">Eliminar</a></td>
                         <td><a href="peliculas_update.php?id=<?php echo $fila['id']; ?>">Actualizar</a></td>
                       </tr>
-                      <?php } ?>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
