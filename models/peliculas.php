@@ -44,7 +44,7 @@ class peliculas_func
         $search=$pdo->prepare($sql_show_movie_category);
         $search->execute(array($cat));
         $movie_category=$search->fetchAll(PDO::FETCH_ASSOC);
-
+        //* Devuelve un array
         return $movie_category;
     }
 }
