@@ -36,6 +36,22 @@ class usuarios_func
             return false;
         }
     }
-}
+    public function new_user($email, $password, $username, $file)
+    {
+        $pdo = $this->conection();
+        $sql_new_user = "INSERT INTO usuarios (correo, contraseña, nombre_usuario, foto) VALUES (?, ?, ?, ?)";
+        $password_h = password_hash($password, PASSWORD_DEFAULT);
 
-?>
+        if ($file != null) {
+            $src = $_SERVER['DOCUMENT_ROOT'] . '/cineplex/multi/user_port/';
+            move_uploaded_file($_FILES['p_img']['tmp_name'], $src . $file);
+            $insert = $pdo->prepare($sql_new_user);
+            $result = $insert->execute(array($email, $password_h, $username, $file));
+            return $result;
+        } else {
+            $insert = $pdo->prepare($sql_new_user);
+            $result = $insert->execute(array($email, $password_h, $username, "usuario.png"));
+            return $result;
+        }
+    }
+}

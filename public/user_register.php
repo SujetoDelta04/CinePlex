@@ -52,31 +52,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <?php
-
-                        $show_movies=new peliculas_controller();
-                        $result=$show_movies->index();
-
-                        foreach ($result as $filas) {
-                        ?>
-                            <div class="col-md-4">
-                                <div class="card mb-3" style="max-width: 540px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="../multi/pelicullas_portadas/<?php echo $filas['portada']; ?>" class="img-fluid rounded-start" alt="...">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Formulario de registro de usuario</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="../controllers/usuarios_controller.php" method="POST" enctype="multipart/form-data">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Correo</label>
+                                    <input type="email" name="u_email" class="form-control" id="exampleInputEmail1" placeholder="Digite su correo electronico">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Contraseña</label>
+                                    <input type="password" name="u_password" class="form-control" id="exampleInputEmail1" placeholder="Digite su contraseña">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nombre de usuario</label>
+                                    <input type="text" name="u_name" class="form-control" id="exampleInputEmail1" placeholder="Digite un nombre de usuario">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Foto de perfil</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="u_img" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Elije una imagen de tu preferencia</label>
                                         </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $filas['titulo']; ?></h5><br>
-                                                <h5 class="card-title">Categoria: <?php echo $filas['nombre']; ?></h5><br>
-                                                <a href="../controllers/peliculas_controller.php?id=<?php echo $filas['id']; ?>" class="btn btn-success">Detalles</a>
-                                            </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" name="r_u_execute" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
                     </div>
                 </div><!-- /.container-fluid -->
             </div>
@@ -101,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <button type="submit" class="btn btn-primary" name="sub_execute_login_users">Iniciar Sesion</button>
                 </form><br>
                 <a href="">¿Olvidaste tu contraseña? Da click aqui</a><br>
-                <a href="user_register.php">¿No te encuentras registrado? Has click aqui</a><br>
+                <a href="">¿No te encuentras registrado? Has click aqui</a><br>
                 <a href="../controllers/usuarios_controller.php?session_out">Cerrar sesion</a>
             </div>
         </aside>
