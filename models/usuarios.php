@@ -54,4 +54,12 @@ class usuarios_func
             return $result;
         }
     }
+    public function membresia($tipo_mem, $username)
+    {
+        $pdo = $this->conection();
+        $sql_mem="UPDATE usuarios SET membresia=? WHERE nombre_usuario=?";
+        $up_user_mem=$pdo->prepare($sql_mem);
+        $result=$up_user_mem->execute(array($tipo_mem, $username));
+        return $result;
+    }
 }

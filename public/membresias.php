@@ -63,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <li>Descuento del 10% con los combos de la confiteria</li>
                                     <li>Descuento de boleteria del 10%</li><br>
                                     <h5>Valor: 10.000</h5>
-                                    <a href="" class="btn btn-success">Comprar</a>
+                                    <a href="../controllers/usuarios_controller.php?mem=Miembro_Bronce" class="btn btn-success">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <li>Avisos anticipados sobre las nuevas peliculas de la cartelera</li>
                                     <li>Acceso a salas VIP</li><br>
                                     <h5>Valor: 15.000</h5>
+                                    <a href="../controllers/usuarios_controller.php?mem=Miembro_Hierro" class="btn btn-success">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <li>Acceso a salas VIP</li>
                                     <li>Descuento en las diferentes sillas ofrecidas por el establecimiento</li><br>
                                     <h5>Valor: 25.000</h5>
+                                    <a href="../controllers/usuarios_controller.php?mem=Miembro_Oro" class="btn btn-success">Comprar</a>
                                 </div>
                             </div>
                         </div>
@@ -106,6 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <li>Descuento en las diferentes sillas ofrecidas por el establecimiento</li>
                                     <li>Acceso a servicio de meseros dentro de la sala</li><br>
                                     <h5>Valor: 60.000</h5>
+                                    <a href="../controllers/usuarios_controller.php?mem=Miembro_Diamante" class="btn btn-success">Comprar</a>
                                 </div>
                             </div>
                         </div>
