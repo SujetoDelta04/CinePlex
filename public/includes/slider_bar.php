@@ -29,10 +29,9 @@
                                 <i class="fas fa-search fa-fw"></i>
                             </button>
                         </div>
-                        <div id="results">
-
-                        </div>
                     </form>
+                </div>
+                <div id="results">
                 </div>
             </div>
             <!-- Sidebar user panel (optional) -->
@@ -139,14 +138,16 @@
     </aside>
 
     <script>
-        $(document).ready(function(){
-            $('input[name=search_p').on('keyup', function(){
-                var movie=$(this).val();
+        $(document).ready(function() {
+            $('input[name=search_p').on('keyup', function() {
+                var movie = $(this).val();
                 $.ajax({
-                    url:'includes/search_movie.php',
-                    type:'GET',
-                    data: {movie: movie},
-                    success: function(reponse){
+                    url: 'includes/search_movie.php',
+                    type: 'GET',
+                    data: {
+                        movie: movie
+                    },
+                    success: function(reponse) {
                         $('#results').html(reponse);
                     }
                 })

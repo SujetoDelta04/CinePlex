@@ -12,6 +12,10 @@ $search_movies = $s_pdo->prepare($sql_search_movie);
 $search_movies->execute();
 $movie_search = $search_movies->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($movie_search as $filas) {
-    echo $filas['titulo'];
+if ($movie_t != null) {
+    foreach ($movie_search as $filas) {
+        echo "<li class='list-group-item list-group-item-light'> <a href='../../controllers/peliculas_controller.php?id=" . $filas['id'] . "'>" . $filas['titulo'] . "</a> </li>";
+    }
+}elseif($movie_t == null){
+    echo "";
 }
