@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -21,32 +22,33 @@
         <div class="sidebar">
             <div class="form-inline">
                 <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
+                    <form action="" method="GET">
+                        <input name="search_p" class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                        <div id="results">
+
+                        </div>
+                    </form>
                 </div>
             </div>
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <?php
-                        if(isset($_SESSION['username']) == null)
-                        {
-                            echo "<img src='../multi/user_port/usuario.png' class='img-circle elevation-2' alt='User Image'>";
-                        }
+                    if (isset($_SESSION['username']) == null) {
+                        echo "<img src='../multi/user_port/usuario.png' class='img-circle elevation-2' alt='User Image'>";
+                    }
                     ?>
                 </div>
                 <div class="info text-light">
                     <?php
-                    if(isset($_SESSION['username']) == null)
-                    {
+                    if (isset($_SESSION['username']) == null) {
                         echo "<p> Sesion inactiva </p>";
-                    }
-                    else
-                    {
+                    } else {
                         echo $_SESSION['username'];
                     }
                     ?>
@@ -136,7 +138,22 @@
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
+    <script>
+        $(document).ready(function(){
+            $('input[name=search_p').on('keyup', function(){
+                var movie=$(this).val();
+                $.ajax({
+                    url:'includes/search_movie.php',
+                    type:'GET',
+                    data: {movie: movie},
+                    success: function(reponse){
+                        $('#results').html(reponse);
+                    }
+                })
+            })
+        })
+    </script>
+
 </body>
 
 </html>
